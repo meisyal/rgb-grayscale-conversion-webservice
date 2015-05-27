@@ -31,17 +31,9 @@ converter = ConverterServer.new
 
 # Sinatra part
 post '/convert' do
-  begin
-    request.body.rewind
-    data = request.body.read
-    jdata = JSON.parse(data)
-
     return_message = {}
-    return_message[:conversion] = converter.convert(jdata['encoded'])
-  rescue => e
-    p e
-  else
-    content_type :json
+    jdata = JSON.parse(params[:data], :symbolize_names => true)
+
+    return_message[:conversion] = converter.convert(jdata[:encoded])
     return_message.to_json
-  end
 end
