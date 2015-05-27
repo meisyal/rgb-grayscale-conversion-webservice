@@ -30,6 +30,8 @@ end
 converter = ConverterServer.new
 
 # Sinatra part
+#set :port, 4567
+
 post '/convert' do
     # initialize return_message
     return_message = {}
