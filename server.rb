@@ -31,9 +31,11 @@ converter = ConverterServer.new
 
 # Sinatra part
 post '/convert' do
+    # initialize return_message
     return_message = {}
+    # parse JSON data from client
     jdata = JSON.parse(params[:data], :symbolize_names => true)
-
+    # convert image and insert them to JSON
     return_message[:conversion] = converter.convert(jdata[:encoded])
     return_message.to_json
 end
