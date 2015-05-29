@@ -1,7 +1,7 @@
 # Ruby converter server
 require 'sinatra'
-require 'json'
 require 'base64'
+require 'json'
 require 'mini_magick'
 
 configure{ enable :logging, :dump_errors, :raise_errors}
@@ -13,7 +13,7 @@ class ConverterServer
     puts "Image received #{Time.now}"
 
     # decode received data from base64 and
-    # convert to grayscape using ImageMagick and RMagick
+    # convert to grayscale using ImageMagick and RMagick
     image = MiniMagick::Image.read(Base64.decode64(data))
     image = image.colorspace("Gray")
 
@@ -30,7 +30,7 @@ end
 converter = ConverterServer.new
 
 # Sinatra part
-#set :port, 4567
+set :port, 4568
 
 post '/convert' do
     # initialize return_message

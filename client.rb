@@ -1,6 +1,8 @@
+# Ruby converter client
 require 'base64'
 require 'json'
 require 'rest-client'
+require 'thread'
 
 def file_name(file)
   result = file.split('.')[0]
@@ -20,6 +22,7 @@ end
 
 worker = Array.new
 worker << 'http://www.example.com:4567'
+worker << 'http://www.example.com:4568'
 
 # define source and destination path
 imagepath = 'your/image/path/here'
