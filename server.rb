@@ -39,5 +39,7 @@ post '/convert' do
     jdata = JSON.parse(params[:data], :symbolize_names => true)
     # convert image and insert them to JSON
     return_message[:conversion] = converter.convert(jdata[:encoded])
+
+    content_type :json
     return_message.to_json
 end
