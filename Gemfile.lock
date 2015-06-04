@@ -1,10 +1,17 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    json (1.8.2)
+    mime-types (1.25.1)
     mini_magick (4.2.4)
     rack (1.6.1)
     rack-protection (1.5.3)
       rack
+    rdoc (4.2.0)
+      json (~> 1.4)
+    rest-client (1.6.8)
+      mime-types (~> 1.16)
+      rdoc (>= 2.4.2)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -15,5 +22,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  json
   mini_magick
+  rest-client
   sinatra (~> 1.4.6)
